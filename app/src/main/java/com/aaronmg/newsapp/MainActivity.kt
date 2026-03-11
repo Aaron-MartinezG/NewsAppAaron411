@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -35,6 +36,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aaronmg.newsapp.components.NewsItem
+import com.aaronmg.newsapp.models.newsList
 import com.aaronmg.newsapp.ui.theme.NewsAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -98,21 +101,32 @@ fun NewsLayout(modifier: Modifier = Modifier) {
                     text = "Eventos",
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 24.sp
+                    fontSize = 24.sp,
+                    color = Color.Gray
                 )
                 Text(
                     text = "Clima",
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 24.sp
+                    fontSize = 24.sp,
+                    color = Color.Gray
                 )
             }
             Text(
                 text = "Últimas noticias",
-                modifier = Modifier.padding(top = 15.dp),
+                modifier = Modifier.padding(top = 20.dp),
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp
             )
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 10.dp)
+        ) {
+            items(newsList){ news ->
+                NewsItem(news = news)
+            }
+        }
         }
 
     }
