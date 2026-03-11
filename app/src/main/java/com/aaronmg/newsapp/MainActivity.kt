@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -52,11 +53,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun NewsLayout(modifier: Modifier = Modifier) {
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp)
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
     ) {
-        item{
             OutlinedTextField(
                 value = "",
                 onValueChange ={},
@@ -80,32 +81,27 @@ fun NewsLayout(modifier: Modifier = Modifier) {
                     )
                 }
             )
-        }
-        item {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 8.dp),
-                horizontalArrangement = Arrangement.Center,
+                horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = "Noticias",
-                    modifier = Modifier.weight(1f),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp
                 )
                 Text(
                     text = "Eventos",
-                    modifier = Modifier.weight(1f),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp
                 )
                 Text(
                     text = "Clima",
-                    modifier = Modifier.weight(1f),
                     textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp
@@ -120,7 +116,6 @@ fun NewsLayout(modifier: Modifier = Modifier) {
         }
 
     }
-}
 
 @Preview(
     showBackground = true,
