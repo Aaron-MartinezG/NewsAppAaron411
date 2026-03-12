@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <string name="search_product">Buscar</string>
-    <string name="noticia1">El presidente de EE.UU. no muestra signos de arrepentimiento...</string>
+    <string name="noticia1">El presidente de EE.UU. no muestra signos de arrepentimiento</string>
     <string name="noticia2">Bañarse en la piscina del desierto de Cleopatra</string>
     <string name="noticia3">DeepSeek tiene en un sinvivir a la industria de la IA con nueva versión</string>
     <string name="noticia4">El rover de marte envía señales...</string>
