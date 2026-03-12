@@ -10,12 +10,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -36,9 +39,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aaronmg.newsapp.components.NewsGridItem
 import com.aaronmg.newsapp.components.NewsItem
 import com.aaronmg.newsapp.models.newsList
 import com.aaronmg.newsapp.ui.theme.NewsAppTheme
+import androidx.compose.foundation.lazy.grid.items
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +92,7 @@ fun NewsLayout(modifier: Modifier = Modifier) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp),
+                    .padding(top = 12.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -125,6 +130,25 @@ fun NewsLayout(modifier: Modifier = Modifier) {
         ) {
             items(newsList){ news ->
                 NewsItem(news = news)
+            }
+        }
+        Text(
+            text = "Alrededor del mundo",
+            modifier = Modifier.padding(top = 20.dp),
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp
+        )
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(700.dp)
+                .padding(top = 20.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(newsList){ news ->
+                NewsGridItem(news = news)
             }
         }
         }
